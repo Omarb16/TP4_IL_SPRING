@@ -1,0 +1,6 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+input,
+button {
+  margin: 0 15px 15px 0 !important;
+}

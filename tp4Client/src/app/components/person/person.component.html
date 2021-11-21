@@ -1,0 +1,9 @@
+<div>
+    <p class="fw-bold">{{person.nom}}</p>
+    <p>{{person.age}}</p>
+    <p>{{person.nationality}}</p>
+    <button matRipple mat-raised-button color="primary" (click)="openU=true">Modifier</button>
+    <button matRipple mat-raised-button color="warn" (click)="onDelete(person.id)">Supprimer</button>
+</div>
+
+<app-personform (save)="save($event)" (close)="openU = false" [open]="openU" [person]="person"></app-personform>

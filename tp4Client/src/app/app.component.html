@@ -1,0 +1,28 @@
+<div class="container">
+    <button matRipple mat-raised-button color="primary" (click)="openC = true">Ajouter</button>
+    <h1> Liste de personnes</h1>
+    <div class="flex">
+        <div *ngFor="let person of persons">
+            <app-person [person]="person" (delete)="delete($event)" (update)="update($event)"></app-person>
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <h1> Recherche par nom</h1>
+    <div [formGroup]="form">
+        <input type="text" class="form-control" formControlName="nom" />
+        <p class="text-danger" *ngIf="nom?.dirty && nom?.errors?.required"> Nom requis</p>
+        <button matRipple mat-raised-button color="primary" (click)="findByName()"
+            [disabled]="form.invalid">Valider</button>
+    </div>
+    <div class="flex">
+        <div *ngFor="let person of personsByName">
+            <app-person [person]="person" (delete)="delete($event)" (update)="update($event)"></app-person>
+        </div>
+    </div>
+</div>
+
+
+
+<app-personform (save)="create($event)" (close)="openC = false" [open]="openC"></app-personform>
